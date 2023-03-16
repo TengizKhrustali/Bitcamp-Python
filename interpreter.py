@@ -10,8 +10,6 @@
 
 expression = input("Expression: ")
 
-expression.split(" ")
-
 x = float(expression[0])
 y = expression[1]
 z = float(expression[2])

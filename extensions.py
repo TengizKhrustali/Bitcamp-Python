@@ -10,10 +10,10 @@
 # .zip
 # If the file’s name ends with some other suffix or has no suffix at all, output application/octet-stream instead, which is a common default.
 
-File_Name = input("tell me your file name and format ")
+File_Name = input("tell me your file name and format ").lower().strip()
 
 if File_Name.endswith(".jpg") or File_Name.endswith(".jpeg"):
-    print("image/jpg")
+    print("image/jpeg")
 elif File_Name.endswith(".gif"):
     print("image/gif")
 elif File_Name.endswith(".png"):
@@ -21,9 +21,8 @@ elif File_Name.endswith(".png"):
 elif File_Name.endswith(".pdf"):
     print("application/pdf")
 elif File_Name.endswith(".txt"):
-    print("application/txt")
+    print("text/plain")
 elif File_Name.endswith(".zip"):
     print("application/zip")
 else:
     print("application/octet-stream")
-

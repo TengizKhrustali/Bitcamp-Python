@@ -1,23 +1,25 @@
 def main():
     # user input
-    answer = (input("What time is it? "))
-    time = convert(answer)
-    match time:
-        case time if time >= 7 and time <= 8:
-            print("breakfast time")
-        case time if 12 <= time <= 13:
-            print("lunch time")
-        case time if 18 <= time <= 19:
-            print("dinner time")
+    user_time = convert((input("What time is it? ")))
+    if 7 <= user_time <= 8:
+        print("Breakfast time")
+    elif 12 <= user_time <= 13:
+        print("Lunch time")
+    elif 18 <= user_time <= 19:
+        print("Dinner time")
 
 def convert(time):
-    # get hour and minute
-    hours, minutes = time.split(":")
-    # convert time into float
-    new_minute = float(minutes) / 60
-    # give converted hour to main function
-    return float(hours) + new_minute
-    
-    
+    if time[len(time)-4:] == "p.m.":
+        time = time[:-4]
+        hours, minutes, = time.split(":")
+        hours = float(hours) + 12
+    else:
+        if time[len(time)-4:] == "a.m.":
+            time = time[:-4]
+        hours, minutes = time.split(":")
+            # convert time into float
+    new_time = float(hours) + float(minutes)/60
+    return new_time
+
 if __name__ == "__main__":
     main()
